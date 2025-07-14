@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>f679dd20-4787-4ac2-9fc3-b77a634ec1d0</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MassTransit" Version="8.5.1" />
+    <PackageReference Include="MassTransit.EntityFrameworkCore" Version="8.5.1" />
+    <PackageReference Include="MassTransit.RabbitMQ" Version="8.5.1" />
+    <PackageReference Include="MediatR" Version="13.0.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.22.1" />
+    <PackageReference Include="StackExchange.Redis" Version="2.8.41" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Contracts\Events\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CatalogService.API\CatalogService.API.csproj" />
+  </ItemGroup>
+
+</Project>
