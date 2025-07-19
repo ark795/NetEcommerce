@@ -17,13 +17,7 @@ public class CreateProductHandler : IRequestHandler<CreateProductCommand, Produc
     }
     public async Task<ProductDto> Handle(CreateProductCommand request, CancellationToken cancellationToken)
     {
-        var product = new Product
-        {
-            Name = request.Name,
-            Description = request.Description,
-            Price = request.Price,
-            Stock = request.Stock,
-        };
+        var product = new Product(request.Name, request.Description, request.Price, request.StockQuantity, request.ImageUrl, request.Brand, request.Category);
         _db.Products.Add(product);
         await _db.SaveChangesAsync();
         var @event = new ProductCreatedEvent
@@ -39,7 +33,7 @@ public class CreateProductHandler : IRequestHandler<CreateProductCommand, Produc
             Name = product.Name,
             Description = product.Description,
             Price = product.Price,
-            Stock = product.Stock,
+            Stock = product.StockQuantity,
         };
     }
 }
